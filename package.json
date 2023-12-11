@@ -1,0 +1,11 @@
+{
+    "name": "full-cycle-challenge",
+    "version": "1.0.0",
+    "description": "Desafio Full Cycle Rocks!",
+    "main": "server.js",
+    "dependencies": {
+      "express": "^4.17.1",
+      "mysql": "^2.18.1"
+    }
+  }
+  
