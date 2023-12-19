@@ -13,6 +13,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - .:/app
     ports:
       - "3000:3000"
     environment:
@@ -22,6 +24,7 @@ services:
       - MYSQL_DATABASE=mydb
     depends_on:
       - mysql
+    command: ["./wait-for-it.sh", "mysql:3306", "--", "npm", "start"]
 
   mysql:
     image: mysql:latest

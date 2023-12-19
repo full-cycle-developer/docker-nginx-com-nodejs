@@ -34,17 +34,33 @@ db.query(
 app.get('/', (req, res) => {
   // Insere um registro na tabela 'people'
   const name = 'Full Cycle Rocks!';
-  const sql = `INSERT INTO people (name) VALUES ('${name}')`;
+  const sqlInsert = `INSERT INTO people (name) VALUES ('${name}')`;
 
-  db.query(sql, (err, result) => {
+  db.query(sqlInsert, (err, result) => {
     if (err) {
       throw err;
     }
     console.log('Registro inserido na tabela');
   });
 
-  // Responde com o conteúdo desejado
-  res.send('<h1>Full Cycle Rocks!</h1>');
+  // Seleciona todos os registros da tabela 'people'
+  const sqlSelect = `SELECT name FROM people`;
+  db.query(sqlSelect, (err, results) => {
+    if (err) {
+      throw err;
+    }
+
+    // Monta o HTML com a lista de nomes
+    let html = '<h1>Full Cycle Rocks!</h1>';
+    html += '<ul>';
+    for (const row of results) {
+      html += `<li>${row.name}</li>`;
+    }
+    html += '</ul>';
+
+    // Envia a resposta
+    res.send(html);
+  });
 });
 
 // Inicia o servidor na porta 3000
