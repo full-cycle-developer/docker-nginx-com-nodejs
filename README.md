@@ -15,7 +15,7 @@ O presente exercício é relacionado ao desenvolvimento de um proxy reverso, usa
 
 ## Solução
 
-O presente projeto foi contruído para atender o requisito do desafio proposto. A seguir é explicada cada parte do projeto e é discutido brevemente como elas se integram para cumprir o objetivo.
+O presente projeto foi contruído para atender o requisito do desafio proposto. A seguir é explicada cada parte do repositório e é discutido brevemente como elas se integram para cumprir o objetivo.
 
 *app/Dockerfile*
 - Baseia-se na imagem node:latest;
@@ -54,15 +54,13 @@ Em resumo:
 - A aplicação Node.js insere um registro no MySQL e retorna a mensagem especificada;
 - O Docker Compose orquestra os contêineres para que tudo funcione de forma integrada;
 
-Instalação:
-
-Após executar no terminal:
+Para instalação, executar no terminal:
 
 ```shell
 $ docker-compose up -d
 ```
 
-Execute também no terminal:
+Na sequência executar no terminal:
 
 ```shell
 $ curl http://localhost:8080
